@@ -1,6 +1,16 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
-
+const state = () => {
+  let country = 'United States';
+  let name = 'California';
+  let governor = 'Gavin Newsom';
+  const city = () => {
+    let name = 'San Francisco';
+    let mayor = 'London Breed';
+    return mayor;
+  }
+  return city();
+}
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
