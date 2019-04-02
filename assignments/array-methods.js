@@ -84,7 +84,30 @@ console.log(ticketPriceTotal);
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+// Generate custom emails to send in bulk thanking for donations
+let emails = runners.map((runner) => {
+  let email = {
+    subject: 'Thank you for your donation',
+    from: 'runners@community.com',
+    to: runner.email,
+    body: `
+    Hello ${runner.first_name},
+
+    Our community would like to thank you, and ${runner.company_name}, personally for your donation of ${runner.donation}.
+    
+    This will go a long way towards upgrading our facilities.
+
+    Best,
+    Community
+    `
+  }
+  return email;
+});
 
 // Problem 2
+// Get list of big donations to send a special token of appreciation (commenorative plaque etc), sort by largest to smallest donation
+let whales = runners.filter((runner) => runner.donation >= 250 ? true : false).sort((a, b) => a.donation <= b.donation);
 
 // Problem 3
+// Get list of comany domains in order to link to them on our website in a list of supporters/contributors
+let domains = runners.map((runner) => `http://www.${runner.email.split('@')[1]}`);
